@@ -1,0 +1,9 @@
+c:\users\chance\documents\visual studio 2013\Projects\Project3Final\Project3Final\bin\Debug\Project3Final.exe.config
+c:\users\chance\documents\visual studio 2013\Projects\Project3Final\Project3Final\obj\Debug\Project3Final.csprojResolveAssemblyReference.cache
+c:\users\chance\documents\visual studio 2013\Projects\Project3Final\Project3Final\obj\Debug\Project3Final.csproj.GenerateResource.Cache
+c:\users\chance\documents\visual studio 2013\Projects\Project3Final\Project3Final\bin\Debug\Project3Final.exe
+c:\users\chance\documents\visual studio 2013\Projects\Project3Final\Project3Final\bin\Debug\Project3Final.pdb
+c:\users\chance\documents\visual studio 2013\Projects\Project3Final\Project3Final\obj\Debug\Project3.Properties.Resources.resources
+c:\users\chance\documents\visual studio 2013\Projects\Project3Final\Project3Final\obj\Debug\Project3Final.exe
+c:\users\chance\documents\visual studio 2013\Projects\Project3Final\Project3Final\obj\Debug\Project3Final.pdb
+c:\users\chance\documents\visual studio 2013\Projects\Project3Final\Project3Final\obj\Debug\Project3.frmConverter.resources
