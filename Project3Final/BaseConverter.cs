@@ -101,7 +101,7 @@ namespace Project3
         /// <param name="decimalNum">Decimal number to convert</param>
         /// <param name="toBase">base to convert decimal to</param>
         /// <returns>String representing converted number</returns>
-        public static string FromDecimal(int decimalNum, int toBase)
+        public static string FromDecimal(int decimalNum, int toBase, int digits)
         {
             Stack<string> convertedBase = new Stack<string>();
             int quotient = decimalNum;
@@ -163,6 +163,10 @@ namespace Project3
                 }
                 quotient = quotient / toBase;
 
+            }
+            while(convertedBase.Count < digits)
+            {
+                convertedBase.Push("0");
             }
 
             //Peeks the values on the list and turns them into a string

@@ -15,7 +15,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -26,10 +28,34 @@ namespace Project3
     /// </summary>
     public partial class frmConverter : Form
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public frmConverter()
         {
             InitializeComponent();
-            
+            this.Text = AssemblyTitle;
+            lblConvertedText.Text = String.Format("Integer Value in Base {0}", nudBase.Value);
+        }
+
+        /// <summary>
+        /// Retreives the title from the assemble file
+        /// </summary>
+        public string AssemblyTitle
+        {
+            get
+            {
+                object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyTitleAttribute), false);
+                if (attributes.Length > 0)
+                {
+                    AssemblyTitleAttribute titleAttribute = (AssemblyTitleAttribute)attributes[0];
+                    if (titleAttribute.Title != "")
+                    {
+                        return titleAttribute.Title;
+                    }
+                }
+                return System.IO.Path.GetFileNameWithoutExtension(Assembly.GetExecutingAssembly().CodeBase);
+            }
         }
 
         /// <summary>
@@ -41,10 +67,16 @@ namespace Project3
         {
             int toConvert = Int32.Parse(txtDecimal.Text);
             int targetBase = (int)nudBase.Value;
+            int digits = (int)nudResultPlaces.Value;
 
-            txtConverted.Text = BaseConverter.FromDecimal(toConvert, targetBase);
+            txtConverted.Text = BaseConverter.FromDecimal(toConvert, targetBase, digits);
         }
 
+        /// <summary>
+        /// Event for close button that closes the application
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -57,6 +89,12 @@ namespace Project3
         /// <param name="e"></param>
         private void btnConvertToDecimal_Click(object sender, EventArgs e)
         {
+             Regex wordPattern = new Regex(@"\w");
+            if(wordPattern.IsMatch(txtConverted.Text) && nudBase.Value < 10)
+            {
+                MessageBox.Show("A base less than 11 cannot contain Letters.", "Error");
+                return;
+            }
             txtDecimal.Text = BaseConverter.ToDecimal(txtConverted.Text, (int)nudBase.Value).ToString();
         }
 
@@ -88,6 +126,16 @@ namespace Project3
             {
                 e.Handled = true;
             }
+        }
+
+        /// <summary>
+        /// Value changed event for nudBase
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void nudBase_ValueChanged(object sender, EventArgs e)
+        {
+            lblConvertedText.Text = String.Format("Integer Value in Base {0}", nudBase.Value);
         }
 
     }

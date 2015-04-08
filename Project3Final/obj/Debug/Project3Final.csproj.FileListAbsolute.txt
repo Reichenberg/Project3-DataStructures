@@ -7,3 +7,12 @@ c:\users\chance\documents\visual studio 2013\Projects\Project3Final\Project3Fina
 c:\users\chance\documents\visual studio 2013\Projects\Project3Final\Project3Final\obj\Debug\Project3Final.exe
 c:\users\chance\documents\visual studio 2013\Projects\Project3Final\Project3Final\obj\Debug\Project3Final.pdb
 c:\users\chance\documents\visual studio 2013\Projects\Project3Final\Project3Final\obj\Debug\Project3.frmConverter.resources
+C:\Users\Chance\Desktop\DataStructures\Project3\Project3Final\bin\Debug\Project3Final.exe.config
+C:\Users\Chance\Desktop\DataStructures\Project3\Project3Final\obj\Debug\Project3Final.exe
+C:\Users\Chance\Desktop\DataStructures\Project3\Project3Final\obj\Debug\Project3Final.pdb
+C:\Users\Chance\Desktop\DataStructures\Project3\Project3Final\bin\Debug\Project3Final.exe
+C:\Users\Chance\Desktop\DataStructures\Project3\Project3Final\bin\Debug\Project3Final.pdb
+C:\Users\Chance\Desktop\DataStructures\Project3\Project3Final\obj\Debug\Project3Final.csprojResolveAssemblyReference.cache
+C:\Users\Chance\Desktop\DataStructures\Project3\Project3Final\obj\Debug\Project3.frmConverter.resources
+C:\Users\Chance\Desktop\DataStructures\Project3\Project3Final\obj\Debug\Project3.Properties.Resources.resources
+C:\Users\Chance\Desktop\DataStructures\Project3\Project3Final\obj\Debug\Project3Final.csproj.GenerateResource.Cache
