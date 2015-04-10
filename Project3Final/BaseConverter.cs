@@ -103,6 +103,7 @@ namespace Project3
         /// <returns>String representing converted number</returns>
         public static string FromDecimal(int decimalNum, int toBase, int digits)
         {
+            //Stack to help base conversion
             Stack<string> convertedBase = new Stack<string>();
             int quotient = decimalNum;
             string converted = "";

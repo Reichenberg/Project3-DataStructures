@@ -40,6 +40,7 @@
             this.txtConverted = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.lblArrow = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudResultPlaces)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBase)).BeginInit();
             this.SuspendLayout();
@@ -49,8 +50,8 @@
             this.btnConvertFromDecimal.Location = new System.Drawing.Point(41, 166);
             this.btnConvertFromDecimal.Name = "btnConvertFromDecimal";
             this.btnConvertFromDecimal.Size = new System.Drawing.Size(137, 34);
-            this.btnConvertFromDecimal.TabIndex = 0;
-            this.btnConvertFromDecimal.Text = "Convert From Decimal";
+            this.btnConvertFromDecimal.TabIndex = 2;
+            this.btnConvertFromDecimal.Text = "Convert &From Decimal";
             this.btnConvertFromDecimal.UseVisualStyleBackColor = true;
             this.btnConvertFromDecimal.Click += new System.EventHandler(this.btnConvertFromDecimal_Click);
             // 
@@ -59,8 +60,8 @@
             this.btnConvertToDecimal.Location = new System.Drawing.Point(196, 166);
             this.btnConvertToDecimal.Name = "btnConvertToDecimal";
             this.btnConvertToDecimal.Size = new System.Drawing.Size(137, 34);
-            this.btnConvertToDecimal.TabIndex = 1;
-            this.btnConvertToDecimal.Text = "Convert To Decimal";
+            this.btnConvertToDecimal.TabIndex = 3;
+            this.btnConvertToDecimal.Text = "Convert &To Decimal";
             this.btnConvertToDecimal.UseVisualStyleBackColor = true;
             this.btnConvertToDecimal.Click += new System.EventHandler(this.btnConvertToDecimal_Click);
             // 
@@ -69,8 +70,8 @@
             this.btnExit.Location = new System.Drawing.Point(485, 157);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(87, 43);
-            this.btnExit.TabIndex = 2;
-            this.btnExit.Text = "Exit";
+            this.btnExit.TabIndex = 7;
+            this.btnExit.Text = "&Exit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
@@ -78,7 +79,7 @@
             // 
             this.lblConvertedText.AutoSize = true;
             this.lblConvertedText.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.lblConvertedText.Location = new System.Drawing.Point(287, 42);
+            this.lblConvertedText.Location = new System.Drawing.Point(311, 42);
             this.lblConvertedText.Name = "lblConvertedText";
             this.lblConvertedText.Size = new System.Drawing.Size(189, 17);
             this.lblConvertedText.TabIndex = 3;
@@ -96,24 +97,24 @@
             // 
             // nudResultPlaces
             // 
-            this.nudResultPlaces.Location = new System.Drawing.Point(474, 94);
-            this.nudResultPlaces.Maximum = new decimal(new int[] {
-            16,
+            this.nudResultPlaces.Location = new System.Drawing.Point(498, 94);
+            this.nudResultPlaces.Minimum = new decimal(new int[] {
+            4,
             0,
             0,
             0});
             this.nudResultPlaces.Name = "nudResultPlaces";
             this.nudResultPlaces.Size = new System.Drawing.Size(74, 20);
-            this.nudResultPlaces.TabIndex = 5;
+            this.nudResultPlaces.TabIndex = 6;
             this.nudResultPlaces.Value = new decimal(new int[] {
-            16,
+            4,
             0,
             0,
             0});
             // 
             // nudBase
             // 
-            this.nudBase.Location = new System.Drawing.Point(301, 94);
+            this.nudBase.Location = new System.Drawing.Point(325, 94);
             this.nudBase.Maximum = new decimal(new int[] {
             16,
             0,
@@ -126,7 +127,7 @@
             0});
             this.nudBase.Name = "nudBase";
             this.nudBase.Size = new System.Drawing.Size(74, 20);
-            this.nudBase.TabIndex = 6;
+            this.nudBase.TabIndex = 5;
             this.nudBase.Value = new decimal(new int[] {
             2,
             0,
@@ -139,23 +140,23 @@
             this.txtDecimal.Location = new System.Drawing.Point(41, 62);
             this.txtDecimal.Name = "txtDecimal";
             this.txtDecimal.Size = new System.Drawing.Size(151, 20);
-            this.txtDecimal.TabIndex = 7;
+            this.txtDecimal.TabIndex = 1;
             this.txtDecimal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtDecimal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDecimal_KeyPress);
             // 
             // txtConverted
             // 
-            this.txtConverted.Location = new System.Drawing.Point(290, 62);
+            this.txtConverted.Location = new System.Drawing.Point(314, 62);
             this.txtConverted.Name = "txtConverted";
             this.txtConverted.Size = new System.Drawing.Size(258, 20);
-            this.txtConverted.TabIndex = 8;
+            this.txtConverted.TabIndex = 4;
             this.txtConverted.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtConverted.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtConverted_KeyPress);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(382, 96);
+            this.label3.Location = new System.Drawing.Point(406, 96);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 13);
             this.label3.TabIndex = 9;
@@ -164,17 +165,27 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(261, 96);
+            this.label4.Location = new System.Drawing.Point(285, 96);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(34, 13);
             this.label4.TabIndex = 10;
             this.label4.Text = "Base:";
             // 
+            // lblArrow
+            // 
+            this.lblArrow.AutoSize = true;
+            this.lblArrow.Location = new System.Drawing.Point(255, 69);
+            this.lblArrow.Name = "lblArrow";
+            this.lblArrow.Size = new System.Drawing.Size(0, 13);
+            this.lblArrow.TabIndex = 11;
+            // 
             // frmConverter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(584, 212);
+            this.Controls.Add(this.lblArrow);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtConverted);
@@ -192,6 +203,7 @@
             this.MinimumSize = new System.Drawing.Size(600, 250);
             this.Name = "frmConverter";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmConverter_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.nudResultPlaces)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBase)).EndInit();
             this.ResumeLayout(false);
@@ -212,6 +224,7 @@
         private System.Windows.Forms.TextBox txtConverted;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblArrow;
     }
 }
 

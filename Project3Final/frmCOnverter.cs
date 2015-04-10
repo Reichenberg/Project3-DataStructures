@@ -65,11 +65,16 @@ namespace Project3
         /// <param name="e"></param>
         private void btnConvertFromDecimal_Click(object sender, EventArgs e)
         {
-            int toConvert = Int32.Parse(txtDecimal.Text);
-            int targetBase = (int)nudBase.Value;
-            int digits = (int)nudResultPlaces.Value;
+            if (!String.IsNullOrEmpty(txtDecimal.Text))
+            {
+                int toConvert = Int32.Parse(txtDecimal.Text);
+                int targetBase = (int)nudBase.Value;
+                int digits = (int)nudResultPlaces.Value;
 
-            txtConverted.Text = BaseConverter.FromDecimal(toConvert, targetBase, digits);
+                txtConverted.Text = BaseConverter.FromDecimal(toConvert, targetBase, digits);
+                lblArrow.Text = "---->";
+                
+            }
         }
 
         /// <summary>
@@ -89,13 +94,19 @@ namespace Project3
         /// <param name="e"></param>
         private void btnConvertToDecimal_Click(object sender, EventArgs e)
         {
-             Regex wordPattern = new Regex(@"\w");
-            if(wordPattern.IsMatch(txtConverted.Text) && nudBase.Value < 10)
+            if (!String.IsNullOrEmpty(txtConverted.Text))
             {
-                MessageBox.Show("A base less than 11 cannot contain Letters.", "Error");
-                return;
+                
+                Regex wordPattern = new Regex(@"[A-Z]");
+                if (wordPattern.IsMatch(txtConverted.Text) && nudBase.Value < 10) // Don't allow the user to input letters for bases less than 11 
+                {
+                    MessageBox.Show("A base less than 11 cannot contain Letters.", "Error");
+                    return;
+                }
+                txtDecimal.Text = BaseConverter.ToDecimal(txtConverted.Text, (int)nudBase.Value).ToString();
+
+                lblArrow.Text = "<----";
             }
-            txtDecimal.Text = BaseConverter.ToDecimal(txtConverted.Text, (int)nudBase.Value).ToString();
         }
 
         /// <summary>
@@ -118,7 +129,8 @@ namespace Project3
         /// <param name="e"></param>
         private void txtConverted_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar >= '0' && e.KeyChar <= '9') || (e.KeyChar >= 'A' && e.KeyChar <= 'F') || e.KeyChar == (char)Keys.Back)
+            //If the base is less than 10 only allow characters that are less than the base to be entered. If the base is 10 or greater allow 0-9 to be entered
+            if ((e.KeyChar >= '0' && e.KeyChar <= ((nudBase.Value < 10) ? char.Parse((nudBase.Value - 1).ToString()) : '9')) || (e.KeyChar >= 'A' && e.KeyChar <= 'F') || e.KeyChar == (char)Keys.Back)
             {
                 return;
             }
@@ -136,6 +148,16 @@ namespace Project3
         private void nudBase_ValueChanged(object sender, EventArgs e)
         {
             lblConvertedText.Text = String.Format("Integer Value in Base {0}", nudBase.Value);
+        }
+
+        /// <summary>
+        /// Method displays goodbye message to user upon closing
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmConverter_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MessageBox.Show("Thank you for using the Base Conversion Program.", "Goodbye");
         }
 
     }
